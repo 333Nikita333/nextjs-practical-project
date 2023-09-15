@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { LinkType } from "../../../types";
+import styles from "./page.module.css";
 
 const links: LinkType[] = [
   {
@@ -36,14 +39,19 @@ const links: LinkType[] = [
 
 const NavBar = () => {
   return (
-    <nav>
-      <Link href="/">My App</Link>
-      <div>
+    <nav className={styles.container}>
+      <Link className={styles.logo} href="/">
+        My App
+      </Link>
+      <div className={styles.links}>
         {links.map(({ id, title, url }) => (
           <Link key={id} href={url}>
             {title}
           </Link>
         ))}
+        <button className={styles.logout} onClick={() => console.log("Logout")}>
+          Logout
+        </button>
       </div>
     </nav>
   );

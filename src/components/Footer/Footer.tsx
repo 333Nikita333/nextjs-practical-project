@@ -1,8 +1,9 @@
 
+import styles from "./page.module.css";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.container}>
       <div></div>
       <div></div>
     </footer>
