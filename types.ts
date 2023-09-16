@@ -16,3 +16,9 @@ export type DarkModeToggleContextType = {
   handleToggle: () => void;
   mode: string;
 };
+export type PostType = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
