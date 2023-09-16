@@ -1,5 +1,5 @@
 import Image from "next/image";
-const styles = require("./page.module.css");
+import styles from "./page.module.css";
 
 const Footer = () => {
   return (
