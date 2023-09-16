@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { LinkType } from "../../../types";
 import styles from "./page.module.css";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 const links: LinkType[] = [
   {
@@ -44,6 +45,7 @@ const NavBar = () => {
         My App
       </Link>
       <div className={styles.links}>
+        <DarkModeToggle />
         {links.map(({ id, title, url }) => (
           <Link key={id} href={url}>
             {title}

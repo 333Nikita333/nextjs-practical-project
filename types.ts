@@ -12,3 +12,7 @@ export type CategoryDataItemType = {
 export type CategoryDataItemsType = {
   [key: string]: CategoryDataItemType[];
 };
+export type DarkModeToggleContextType = {
+  handleToggle: () => void;
+  mode: string;
+};
