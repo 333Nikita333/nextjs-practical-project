@@ -17,8 +17,10 @@ export type DarkModeToggleContextType = {
   mode: string;
 };
 export type PostType = {
-  userId: number;
-  id: number;
+  _id: number;
   title: string;
-  body: string;
+  desc: string;
+  img: string;
+  content: string;
+  username: string;
 };
