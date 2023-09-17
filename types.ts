@@ -24,3 +24,6 @@ export type PostType = {
   content: string;
   username: string;
 };
+export type ErrorType = {
+  message: string;
+};
