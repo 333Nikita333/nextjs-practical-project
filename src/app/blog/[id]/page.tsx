@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { FC } from "react";
 import { PostType } from "../../../../types";
+import { Metadata } from "next";
 
 interface IBlogIdProps {
   params: {
@@ -10,6 +11,7 @@ interface IBlogIdProps {
 }
 async function getData(id: string) {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    // const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     // to cancel caching
     cache: "no-store",
   });
@@ -19,6 +21,15 @@ async function getData(id: string) {
   }
 
   return res.json();
+}
+
+export async function generateMetadata({ params }: IBlogIdProps) {
+  const post: PostType = await getData(params.id);
+
+  return {
+    title: post.title,
+    description: post.desc,
+  };
 }
 
 const BlogId: FC<IBlogIdProps> = async ({ params }) => {

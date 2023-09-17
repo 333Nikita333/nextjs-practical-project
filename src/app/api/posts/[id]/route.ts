@@ -2,9 +2,13 @@ import Post from "@/models/Post";
 import connect from "@/utils/db";
 import { NextResponse } from "next/server";
 
-export const GET = async (request: any, { params }: any) => {
-  const { id } = params;
-  //   console.log("params =>", params);
+export const GET = async (
+  request: any,
+  response: { params: { id: string } }
+) => {
+  const {
+    params: { id },
+  } = response;
 
   try {
     await connect();

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { PostType } from "../../../types";
 import useSWR from "swr";
+import { useSession } from "next-auth/react";
 
 const Dashboard = () => {
+  const session = useSession();
   // const [data, setData] = useState<PostType[]>([]);
   // const [isError, setIsError] = useState(false);
   // const [isLoading, setIsLoading] = useState(true);
