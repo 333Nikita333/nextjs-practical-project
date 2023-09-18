@@ -1,15 +1,12 @@
 import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-interface RequestBody {
-  name: string;
-  email: string;
-  password: string;
-}
+import { NextResponse } from "next/server";
+import { RequestBodyRegisterType } from "../../../../../types";
 
-export const POST = async (request: NextRequest) => {
-  const { name, email, password }: RequestBody = await request.json();
+export const POST = async (request: Request) => {
+  const { name, email, password }: RequestBodyRegisterType =
+    await request.json();
 
   if (!name || !email || !password) {
     return new NextResponse("Name, email, and password are required", {

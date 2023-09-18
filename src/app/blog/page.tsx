@@ -1,7 +1,8 @@
+import { FC } from "react";
 import Link from "next/link";
-import styles from "./page.module.css";
 import Image from "next/image";
 import { PostType } from "../../../types";
+import styles from "./page.module.css";
 
 async function getData() {
   const res = await fetch("http://localhost:3000/api/posts", {
@@ -17,9 +18,9 @@ async function getData() {
   return res.json();
 }
 
-const Blog = async () => {
+const Blog: FC = async () => {
   const data: PostType[] = await getData();
-
+console.log('data', data)
   return (
     <div>
       {!data ? (

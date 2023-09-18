@@ -1,7 +1,8 @@
+import { FC } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-const Portfolio = () => {
+const Portfolio: FC = () => {
   return (
     <div>
       <h1 className={styles.selectTitle}>Choose a gallery</h1>

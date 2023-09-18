@@ -1,8 +1,7 @@
+import { FC } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { FC } from "react";
 import { PostType } from "../../../../types";
-import { Metadata } from "next";
 
 interface IBlogIdProps {
   params: {
@@ -25,7 +24,6 @@ async function getData(id: string) {
 
 export async function generateMetadata({ params }: IBlogIdProps) {
   const post: PostType = await getData(params.id);
-
   return {
     title: post.title,
     description: post.desc,
@@ -34,7 +32,6 @@ export async function generateMetadata({ params }: IBlogIdProps) {
 
 const BlogId: FC<IBlogIdProps> = async ({ params }) => {
   const data: PostType = await getData(params.id);
-
   return (
     <div>
       <div className={styles.top}>

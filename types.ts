@@ -27,3 +27,8 @@ export type PostType = {
 export type ErrorType = {
   message: string;
 };
+export type RequestBodyRegisterType = {
+  name: string;
+  email: string;
+  password: string;
+};

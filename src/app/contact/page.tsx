@@ -1,13 +1,14 @@
-import styles from "./page.module.css";
+import { FC } from "react";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
+import styles from "./page.module.css";
 
 export const metadata = {
   title: "Contact",
   description: "This is decription",
 };
 
-const Contact = () => {
+const Contact: FC = () => {
   return (
     <div>
       <h1 className={styles.title}>Lets Keep in Touch</h1>

@@ -5,11 +5,11 @@
   gap: 20px;
 }
 
-.title{
+.title {
   color: #bbb;
 }
 
-.subtitle{
+.subtitle {
   font-size: 20px;
   margin-bottom: 30px;
   color: #bbb;
@@ -67,4 +67,7 @@
 
 .google:hover {
   background-color: rgba(228, 97, 50, 0.803);
+}
+.register {
+  text-decoration: underline;
 }

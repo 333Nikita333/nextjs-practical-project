@@ -1,7 +1,8 @@
+import { FC } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer className={styles.container}>
       <div>2023 My App. All right reserved</div>

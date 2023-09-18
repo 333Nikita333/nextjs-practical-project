@@ -1,9 +1,10 @@
 "use client";
-import Link from "next/link";
-import styles from "./page.module.css";
 import { FC, FormEventHandler, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ErrorType } from "../../../../../types";
+import styles from "./page.module.css";
+import { signIn } from "next-auth/react";
 
 const Register: FC = () => {
   const [error, setError] = useState<ErrorType | null>(null);
@@ -71,6 +72,7 @@ const Register: FC = () => {
         </button>
         {error && "Something went wrong!"}
       </form>
+      <button onClick={() => signIn("google")}>SignIn with Google</button>
       <span>- OR -</span>
       <Link href="/dashboard/login">Login with an existing Account</Link>
     </div>

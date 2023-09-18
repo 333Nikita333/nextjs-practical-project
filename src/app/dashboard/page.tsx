@@ -1,13 +1,13 @@
 "use client";
-import { FormEventHandler } from "react";
-import styles from "./page.module.css";
-import { PostType } from "../../../types";
-import useSWR from "swr";
+import { FC, FormEventHandler } from "react";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import useSWR from "swr";
+import { PostType } from "../../../types";
+import styles from "./page.module.css";
 
-const Dashboard = () => {
+const Dashboard: FC = () => {
   // const [data, setData] = useState<PostType[]>([]);
   // const [isError, setIsError] = useState(false);
   // const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +30,7 @@ const Dashboard = () => {
 
   //   getData();
   // }, []);
+
   const session = useSession();
   const router = useRouter();
   const username: string | null | undefined = session?.data?.user?.name;
@@ -47,7 +48,7 @@ const Dashboard = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    console.log("formData =>", formData);
+    console.log("formData", formData);
     const title = formData.get("title");
     const desc = formData.get("desc");
     const img = formData.get("img");
@@ -65,14 +66,26 @@ const Dashboard = () => {
         }),
       });
       mutate();
-      e.currentTarget.reset();
+
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async (postId: number): Promise<void> => {
+    try {
+      await fetch(`api/posts/${postId}`, {
+        method: "DELETE",
+      });
+      mutate();
     } catch (error) {
       console.log(error);
     }
   };
 
   if (session.status === "loading") {
-    return <p>Loading</p>;
+    return <p>Loading...</p>;
   }
 
   if (session.status === "unauthenticated") {
@@ -84,7 +97,7 @@ const Dashboard = () => {
       <div className={styles.container}>
         <div className={styles.posts}>
           {error && <p>Something went wrong</p>}
-          
+
           {isLoading
             ? "Loading..."
             : data?.map((post: PostType) => (
@@ -98,7 +111,12 @@ const Dashboard = () => {
                     />
                   </div>
                   <h2>{post.title}</h2>
-                  <span className={styles.delete}>X</span>
+                  <span
+                    className={styles.delete}
+                    onClick={() => handleDelete(post._id)}
+                  >
+                    X
+                  </span>
                 </div>
               ))}
         </div>

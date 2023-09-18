@@ -1,7 +1,6 @@
 import { useContext } from "react";
-// import styles from "./page.module.css";
-const styles = require("./page.module.css")
 import { ThemeContext } from "@/context/ThemeContext";
+import styles from "./page.module.css";
 
 const DarkModeToggle = () => {
   //   const mode = "dark";

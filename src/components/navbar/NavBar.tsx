@@ -1,10 +1,11 @@
 "use client";
 
+import { FC } from "react";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { LinkType } from "../../../types";
 import styles from "./page.module.css";
-import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import { signOut, useSession } from "next-auth/react";
 
 const links: LinkType[] = [
   {
@@ -39,8 +40,9 @@ const links: LinkType[] = [
   },
 ];
 
-const NavBar = () => {
+const NavBar: FC = () => {
   const session = useSession();
+  
   return (
     <nav className={styles.container}>
       <Link className={styles.logo} href="/">

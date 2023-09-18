@@ -1,9 +1,9 @@
-import AuthProvider from "@/components/AuthProvider/AuthProvider";
-import Footer from "@/components/Footer/Footer";
-import NavBar from "@/components/navbar/NavBar";
-import { ThemeProvider } from "@/context/ThemeContext";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import { ThemeProvider } from "@/context/ThemeContext";
+import Footer from "@/components/Footer/Footer";
+import NavBar from "@/components/navbar/NavBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

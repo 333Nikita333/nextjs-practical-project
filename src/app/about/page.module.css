@@ -17,15 +17,7 @@
     padding: 5px;
     color: white;
   }
-  .imgTitle{
-    font-size: inherit;
-  }
-  .imgDesc{
-    font-size: inherit;
-  }
-  .title{
-    font-size: inherit;
-  }
+  
   .textContainer {
     display: flex;
     gap: 100px;

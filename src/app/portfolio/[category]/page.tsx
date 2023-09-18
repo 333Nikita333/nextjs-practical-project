@@ -1,9 +1,9 @@
-import Button from "@/components/Button/Button";
+import { FC } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { FC } from "react";
-import { CategoryDataItemType } from "../../../../types";
 import { items } from "./data";
+import { CategoryDataItemType } from "../../../../types";
+import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 
 interface ICategoryProps {

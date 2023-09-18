@@ -1,10 +1,11 @@
 "use client";
+import { FC, FormEventHandler } from "react";
 import { signIn, useSession } from "next-auth/react";
-import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
-import { FormEvent, FormEventHandler } from "react";
+import styles from "./page.module.css";
+import Link from "next/link";
 
-const Login = () => {
+const Login: FC = () => {
   const session = useSession();
   const router = useRouter();
 
@@ -20,8 +21,9 @@ const Login = () => {
   };
 
   if (session.status === "loading") {
-    return <p>Loading</p>;
+    return <p>Loading...</p>;
   }
+
   if (session.status === "authenticated") {
     router?.push("dashboard");
   }
@@ -29,15 +31,25 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input className={styles.input} type="email" placeholder="Email" />
+        <input
+          className={styles.input}
+          type="email"
+          name="email"
+          placeholder="Email"
+        />
         <input
           className={styles.input}
           type="password"
+          name="password"
           placeholder="Password"
         />
-        <button className={styles.button}>LogIn</button>
+        <button type="submit" className={styles.button}>
+          LogIn
+        </button>
       </form>
       <button onClick={() => signIn("google")}>Login with Google</button>
+      <span> -OR- </span>
+      <Link className={styles.register} href="/dashboard/register">Register</Link>
     </div>
   );
 };
