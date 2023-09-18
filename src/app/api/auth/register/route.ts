@@ -2,7 +2,6 @@ import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
-
 interface RequestBody {
   name: string;
   email: string;
