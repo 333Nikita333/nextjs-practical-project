@@ -20,7 +20,7 @@ async function getData() {
 
 const Blog: FC = async () => {
   const data: PostType[] = await getData();
-console.log('data', data)
+
   return (
     <div>
       {!data ? (
